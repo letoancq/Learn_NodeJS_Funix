@@ -7,12 +7,12 @@ const app = express();
 
 app.use(morgan("combined"));
 
-const admonRouter = require("./routes/admin");
+const adminRouter = require("./routes/admin");
 const shopRouter = require("./routes/shop");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(admonRouter);
+app.use("/admin", adminRouter);
 app.use(shopRouter);
 
 app.use((req, res, next) => {
