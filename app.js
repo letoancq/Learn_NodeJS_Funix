@@ -2,20 +2,11 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const expressHbs = require('express-handlebars');
-
-const app = express();
 
 const errorController = require('./controllers/error');
 
-app.engine(
-  'hbs',
-  expressHbs({
-    layoutsDir: 'views/layouts/',
-    defaultLayout: 'main-layout',
-    extname: 'hbs'
-  })
-);
+const app = express();
+
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
