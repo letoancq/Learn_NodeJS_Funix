@@ -1,0 +1,71 @@
+<div class="">
+</div>
+
+<header>
+  <nav class="navbar">
+    <a class="navbar__brand" href="/"><img
+        src="/image/brand.svg"
+        alt="Brand"
+      />
+    <ul class="navbar__list">
+      <li class="navbar__item">
+        <a href="/" class="<%= path === '/home' ? 'active' : ''%>"> Home</a>
+      </li>
+      <li class="navbar__item">
+        <a
+          href="/attendance"
+          class="<%= path === '/attendance' ? 'active' : ''%>"
+        > Timekeeping 
+      </li>
+      <li class="navbar__item">
+        <a
+          href="/staff/infoStaff"
+          class="<%= path === '/staff/infoStaff' ? 'active' : ''%>"
+        >Infomation</a>
+      </li>
+      <li class="navbar__item">
+        <a
+          href="/staff/reference"
+          class="<%= path === '/staff/reference' ? 'active' : ''%>"
+        >Reference</a>
+      </li>
+      <li class="navbar__item">
+        <a
+          href="/covidDetail"
+          class="<%= path === '/covid' ? 'active' : ''%>"
+        >Covid Detail</a>
+      </li>
+    </ul>
+    <button class="side-menu-toggle">Menu</button>
+  </nav>
+</header>
+  
+<nav class="mobile-nav">
+  <ul class="mobile-nav__list">
+    <li class="mobile-nav__item">
+      <a href="/" class="<%= path === '/home' ? 'active' : ''%>"> Home</a>
+    </li>
+    <li class="mobile-nav__item">
+      <a href="/attendance" class="<%= path === '/attendace' ? 'active' : ''%>">
+        Timekeeping</a>
+    </li>
+    <li class="mobile-nav__item">
+      <a
+        href="/staff/infoStaff"
+        class="<%= path === '/staff/infoStaff' ? 'active' : ''%>"
+      >Infomation</a>
+    </li>
+    <li class="mobile-nav__item">
+      <a
+        href="/staff/reference"
+        class="<%= path === '/staff/reference' ? 'active' : ''%>"
+      >Reference</a>
+    </li>
+    <li class="mobile-nav__item">
+      <a
+        href="/covidDetail"
+        class="<%= path === '/covid' ? 'active' : ''%>"
+      >Covid Detail</a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,17 @@
+<div class="attendace-info">
+    <h3 class="attendace-info__title">Số Giờ Đã Làm Hôm Nay: </h3>
+    <p class="attendace-info__text">
+        {{timeWorked.totalHourWorked}} giờ {{timeWorked.totalMinWorked}} phút
+    
+    </p>
+    <h3 class="attendace-info__title">Danh sách các lượt bắt đầu, kết thúc:</h3>
+    <ul class="attendace-info__list">
+        {{#each staff}}
+        <li class="attendace-info__item">
+            <p>Bắt Đầu: {{startTime}}</p>
+            <p>Nơi làm Việc: {{workPlace}}</p>  
+            <p>Kết thúc: {{endTime}}</p>
+        </li>
+        {{/each}}
+    </ul>
+</div>

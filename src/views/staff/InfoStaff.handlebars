@@ -1,0 +1,67 @@
+<div class="info-staff__wrapper">
+  <form action="/staff/infoStaff/edit" method="POST">
+    <h2 class="info-staff__title">Thông Tin Nhân Viên</h2>
+    <div class="grid">
+      <div>
+        <div class="info-staff__item">
+          <p>
+            <i class="fas fa-id-card"></i>
+            Mã ID:
+            {{id}}
+          </p>
+        </div>
+        <div class="info-staff__item">
+          <p>
+            <i class="fas fa-user"></i>
+            Họ và tên:
+            {{name}}
+          </p>
+        </div>
+        <div class="info-staff__item">
+          <p>
+            <i class="fas fa-birthday-cake"></i>
+            Ngày sinh:
+            {{dOB}}
+          </p>
+        </div>
+        <div class="info-staff__item">
+          <p>
+            <i class="fas fa-coins"></i>
+            Hệ số lương:
+            {{salaryScale}}
+          </p>
+        </div>
+        <div class="info-staff__item">
+          <p>
+            <i class="fas fa-calendar-check"></i>
+            Ngày bắt đầu làm:
+            {{startDate}}
+          </p>
+        </div>
+        <div class="info-staff__item">
+          <p>
+            <i class="fas fa-user-cog"></i>
+            Phòng ban:
+            {{department}}
+          </p>
+        </div>
+        <div class="info-staff__item">
+          <p>
+            <i class="fas fa-calendar-times"></i>
+            Số ngày nghỉ:
+            {{annualLeave}}
+            ngày
+          </p>
+        </div>
+        <div class="info-staff__item">
+          <i class="fas fa-portrait"></i>
+          <input type="text" value="{{image}}" name="image" />
+        </div>
+      </div>
+      <div>
+        <img class="info-staff__img" src="{{image}}" alt="avatar" />
+      </div>
+    </div>
+    <button class="info-staff__btn" type="submit">Chỉnh Sửa</button>
+  </form>
+</div>

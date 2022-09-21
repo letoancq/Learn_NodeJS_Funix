@@ -1,0 +1,47 @@
+<h3 class="covid-detail__title">Bảng Thông Tin Covid</h3>
+<div class="grid">
+    <div class="covid-detail__wrapper">
+        <form action="/covidDetail/temperature" method="POST">
+            <label for="temperature">Nhiệt độ</label>
+            <input id="temperature" name="temperature" step="0.1" min=34 max=41 type="number">
+
+            <label for="timeOfTemperature">Giờ Đo </label>
+            <input id="timeOfTemperature" name="timeOfTemperature" type="time">
+
+            <label for="dateOfTemperature">Ngày Đo </label>
+            <input id="dateOfTemperature" name="dateOfTemperature" type="date">
+            <button type="submit">Đăng Ký</button>
+        </form>
+
+    </div>
+    <div class="covid-detail__wrapper">
+        <form action="/covidDetail/injection" method="POST">
+            <label for="nameOfFirstVaccine">Tên vaccine (Mũi 1)</label>
+            <input id="nameOfFirstVaccine" name="nameOfFirstVaccine" type="text">
+            <label for="dateOfFirstVaccine">Ngày tiêm</label>
+            <input id="dateOfFirstVaccine" name="dateOfFirstVaccine" type="date">
+
+            <label for="nameOfSecondVaccine">Tên vaccine (Mũi 2)</label>
+            <input id="nameOfSecondVaccine" name="nameOfSecondVaccine" type="text">
+            <label for="dateOfSecondVaccine">Ngày tiêm</label>
+            <input id="dateOfSecondVaccine" name="dateOfSecondVaccine" type="date">
+            
+            <button type="submit">Đăng Ký</button>
+        </form>
+    </div>
+    <div class="covid-detail__wrapper">
+        <form action="/covidDetail/infect" method="POST">
+            <label for="infectDate">Ngày nhiễm covid</label>    
+            <input id="infectDate" name="infectDate" type="date">
+
+            <label for="recoverDate">Ngày khỏi bệnh</label>
+            <input id="recoverDate" name="recoverDate" type="date">
+
+            <label for="isolationDate">Số ngày cách ly</label>
+            <input id="isolationDate" name="recoverDate" min=0 max=21 type="number">
+            <button type="submit">Đăng Ký</button>
+
+        </form>
+    </div>
+</div>
+

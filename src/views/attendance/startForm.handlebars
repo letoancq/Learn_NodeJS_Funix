@@ -1,0 +1,19 @@
+<div class='form-start__wrapper show-form'>
+    <form class="form-start" action="/attendance/start" method="POST">
+        <div class="form-control">
+            <label for="name">Tên Nhân Viên</label>
+            <input class="input-disabled"  disabled="disabled" type="text" value={{#if staff}}{{name}}{{else}}''{{/if}}>
+        
+        </div>
+        <div class="form-control">
+            <label for="workPlace">Nơi Làm Việc</label>
+            <select name="workPlace" id="workPlace">
+                <option value="Home">Nhà</option>
+                <option value="Company" selected="">Công Ty</option>
+                <option value="Customer">Khách Hàng</option>
+            </select>
+        </div>
+        <input type="hidden" name="mode" value="start">
+        <button type="submit" class="btn-custom-form">Điểm Danh</button>
+    </form>
+</div>

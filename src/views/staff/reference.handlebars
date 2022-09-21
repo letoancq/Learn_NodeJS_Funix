@@ -1,0 +1,92 @@
+<div class="grid">
+    <div class="referenceStaff__wrapper">
+        <h3 class="referenceStaff__title">Danh sách lượt làm</h3>
+        <table class="referenceStaff__table">
+            <tr>
+                <th colspan="2">Ngày</th>
+                <th colspan="2">Giờ bắt đầu</th>
+                <th colspan="2">Giờ kết thúc</th>
+                <th colspan="2">Nơi làm việc</th>
+                <th colspan="2">Giờ làm thêm</th>
+            </tr>
+            {{#each workInDay}}
+                <tr>
+                    <td colspan="2">
+                        {{startDay}}
+                    </td>
+                    <td colspan="2">
+                       {{startTime}}
+                    </td>
+                    <td colspan="2">
+                          {{endTime}}
+                    </td>
+                    <td colspan="2">    
+                        {{workPlace}}
+                    </td>
+                {{/each}}
+                    <td colspan="2">
+                        {{overTime.overHour}} : {{overTime.overMin}}
+                    </td>
+                </tr>
+            
+        </table>
+        <p class="referenceStaff__article">
+            <b>Tổng số giờ làm lần này là:</b>  {{#if (compare2 isStarted)}}
+                       {{timeWorked.totalHourWorked}}:{{timeWorked.totalMinWorked}}
+                        {{else}}
+                          --
+                        {{/if}}
+        </p>
+    </div>
+    <div class="referenceStaff__wrapper">
+        <h3 class="referenceStaff__title">Danh sách đăng ký nghỉ phép</h3>
+        <table class="referenceStaff__table">
+            
+            <tr>
+                <th>Ngày</th>
+                <th colspan="4">Số Giờ</th>
+                <th colspan="4">Lý do</th>
+            </tr>
+            {{#each dayLeave}}
+            <tr>
+                
+                    <td>
+                        {{day}}
+                    </td>
+                    <td colspan="4">
+                        {{time}}
+                    </td>
+                    <td colspan="4">
+                        {{reason}}
+                    </td>
+                
+            </tr>
+            {{/each}}    
+        </table>
+    </div>
+    <div class="referenceStaff__wrapper">
+        <h3 class="referenceStaff__title">Chi tiết Lương</h3>
+        <form class="form-select-month" action="/staff/reference" method="POST">
+            <label for="month">Tháng</label>
+            <select onchange="this.form.submit()" class="select-month" name="month" id="month">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+        </form>
+        <span>Tháng đang xem là: tháng {{month}} </span>
+        <p class="referenceStaff__salary">
+            {{covert salary}}
+        </p>
+    </div>
+</div>
+

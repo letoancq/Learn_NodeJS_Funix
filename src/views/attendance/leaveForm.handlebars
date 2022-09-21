@@ -1,0 +1,43 @@
+<div class="form-leave__wrapper">
+  <div class="form-leave">
+    {{#if (compare annualLeave)}}
+      <h2 class="form-leave__title">Bạn Đã Hết Số Ngày Nghỉ</h2>
+      <a href="/attendance" class="link-btn">Quay Lại</a>
+    {{else}}
+      <form action="/attendance/leaveForm" method="POST">
+        <h3 class="form-leave__title">Bảng Xin Nghỉ Phép</h3>
+        <div class="form-control">
+          <label for="daysLeft">Số Ngày Nghỉ Còn Lại</label>
+          <input
+            id="daysLeft"
+            class="input-disabled"
+            type="text"
+            disabled="disabled"
+            value="{{annualLeave}}"
+            required
+          />
+        </div>
+        <div class="form-control">
+          <label for="daysLeave">Chọn Ngày Nghỉ</label>
+          <input id="daysLeave" type="date" name="daysLeave" />
+        </div>
+        <div class="form-control">
+          <label for="hoursLeave">Số Giờ Nghỉ (Tối Đa 8 Giờ) </label>
+          <input
+            id="hoursLeave"
+            type="number"
+            min=0
+            max={{#if (compare1 annualLeave)}} (annualLeave / 8) {{else}}8  {{/if}}
+            name="hoursLeave"
+            required  
+          />
+        </div>
+        <div class="form-control">
+          <label for="reason">Lý Do</label>
+          <textarea id="reason" name="reason" cols="30" rows="10" required></textarea>
+        </div>
+        <button class="info-staff__btn" type="submit">Gửi</button>
+      </form>
+    {{/if}}
+  </div>
+</div>

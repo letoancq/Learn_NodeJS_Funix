@@ -1,0 +1,18 @@
+<div class="attendace-wrapper">
+    <div class="attendace-form">
+        <form action="/attendance/start" method="GET">
+            <button <%=isStarted ? 'disabled' : isStarted===null ? '' : '' %>
+                class="btn-custom" type="submit">Điểm Danh
+            </button>
+            <input type="hidden" name="mode" value="start">
+        </form>
+        <form action="/attendance/end" method="POST">
+            <button <%=isStarted ? '' : isStarted===null ? '' : 'disabled' %>
+                class="btn-custom" type="submit">Kết Thúc Làm
+            </button>
+            <input type="hidden" name="mode" value="end">
+        </form>
+        <form action="/attendance/leaveForm" method="GET">
+            <button class="btn-custom" type="submit">Nghỉ Phép</button>
+        </form>
+    </div>
