@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-  User.findById('5bab316ce0a7c75f783cb8a8')
+  User.findById('632dd4951838338158aa5dcf')
     .then(user => {
       req.user = user;
       next();
@@ -34,14 +34,14 @@ app.use(errorController.get404);
 
 mongoose
   .connect(
-    "mongodb+srv://letoan:letoan410@cluster0.m09swex.mongodb.net/shop?retryWrites=true&w=majority",
-    { useNewUrlParser: true, useUnifiedTopology: true }
+    'mongodb+srv://letoan:letoan410@cluster0.m09swex.mongodb.net/shop?retryWrites=true&w=majority',
+    { useNewUrlParser: true , useUnifiedTopology: true }
   )
   .then(result => {
     User.findOne().then(user => {
       if (!user) {
         const user = new User({
-          name: 'Toản',
+          name: 'Toan',
           email: 'Toan@test.com',
           cart: {
             items: []
