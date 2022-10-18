@@ -11,9 +11,6 @@ const User = require("./models/user");
 const MongoDB_URI =
   "mongodb+srv://letoan:letoan410@cluster0.m09swex.mongodb.net/shop?retryWrites=true&w=majority";
 
-const MongoDB_URI =
-  "mongodb+srv://letoan:letoan410@cluster0.m09swex.mongodb.net/shop?retryWrites=true&w=majority";
-
 const app = express();
 const store = new MongoDBStore({
   uri: MongoDB_URI,
