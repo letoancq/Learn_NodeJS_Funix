@@ -8,13 +8,14 @@ const MongoDBStore = require("connect-mongodb-session")(session);
 
 const errorController = require("./controllers/error");
 const User = require("./models/user");
-const MongoDB_URI =
+
+const MONGODB_URI =
   "mongodb+srv://letoan:letoan410@cluster0.m09swex.mongodb.net/shop?retryWrites=true&w=majority";
 
 const app = express();
 const store = new MongoDBStore({
-  uri: MongoDB_URI,
-  collection: "session",
+  uri: MONGODB_URI,
+  collection: "sessions",
 });
 
 app.set("view engine", "ejs");
@@ -36,7 +37,10 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  User.findById("632dd4951838338158aa5dcf")
+  if (!req.session.user) {
+    return next();
+  }
+  User.findById(req.session.user._id)
     .then((user) => {
       req.user = user;
       next();
@@ -51,13 +55,13 @@ app.use(authRoutes);
 app.use(errorController.get404);
 
 mongoose
-  .connect(MongoDB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => {
     User.findOne().then((user) => {
       if (!user) {
         const user = new User({
-          name: "Toan",
-          email: "Toan@test.com",
+          name: "Max",
+          email: "max@test.com",
           cart: {
             items: [],
           },
