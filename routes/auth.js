@@ -10,7 +10,20 @@ router.get("/login", authController.getLogin);
 
 router.get("/signup", authController.getSignup);
 
-router.post("/login", authController.postLogin);
+router.post(
+  "/login",
+  [
+    body("email")
+      .isEmail()
+      .withMessage("Please enter a valis email address")
+      .normalizeEmail(),
+    body("password", "Password has to be valid")
+      .isLength({ min: 5, max: 8 })
+      .isAlphanumeric()
+      .trim(),
+  ],
+  authController.postLogin
+);
 
 router.post(
   "/signup",
@@ -30,17 +43,21 @@ router.post(
             );
           }
         });
-      }),
+      })
+      .normalizeEmail(),
     body("password", "Please enter a password with only 5 to 8 characters.")
       .isLength({ min: 5, max: 8 })
-      .isAlphanumeric(),
+      .isAlphanumeric()
+      .trim(),
 
-    body("confirmPassword").custom((value, { req }) => {
-      if (value !== req.body.password) {
-        throw new Error("Password have to match!");
-      }
-      return true;
-    }),
+    body("confirmPassword")
+      .trim()
+      .custom((value, { req }) => {
+        if (value !== req.body.password) {
+          throw new Error("Password have to match!");
+        }
+        return true;
+      }),
   ],
   authController.postSignup
 );
